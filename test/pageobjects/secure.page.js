@@ -1,4 +1,4 @@
-import { $ } from '@wdio/globals'
+import { $, browser } from '@wdio/globals'
 import Page from './page.js';
 
 class SecurePage extends Page {
@@ -82,6 +82,32 @@ class SecurePage extends Page {
     get navBarAbout () {
         return $('#__next > div.MuiBox-root.css-1u9jaw6 > header > div');
     }
+
+    async burgerOpenClose () {
+        this.burgerButton.waitForClickable();
+        expect(this.burgerX.isDisplayed());
+        this.burgerX.waitForClickable();
+    }
+
+    async burgerItemsSelect () {
+        this.burgerButton.waitForClickable();
+        expect(this.burgerX.isDisplayed());
+        this.burgerItems.waitForClickable();
+        this.backpackPage.waitForClickable();
+        expect(this.backToProducts.isDisplayed());
+        this.burgerButton.waitForClickable();
+        this.burgerItems.waitForClickable();
+        expect(this.titleProducts.isDisplayed());
+    }
+
+    async burgerAboutSelect () {
+        this.burgerButton.waitForClickable();
+        this.burgerAbout.waitForClickable();
+        expect(this.navBarAbout.isDisplayed());
+        browser.back();
+        expect(this.titleProducts.isDisplayed());
+    }
+
 }
 
 export default new SecurePage();
