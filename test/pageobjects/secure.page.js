@@ -66,6 +66,14 @@ class SecurePage extends Page {
     get addCartOnsie () {
         return $('#add-to-cart-sauce-labs-onesie');
     }
+
+    get backpackPage () {
+        return $('#item_4_title_link > div');
+    }
+
+    get backToProducts () {
+        return $('#back-to-products');
+    }
 }
 
 export default new SecurePage();
