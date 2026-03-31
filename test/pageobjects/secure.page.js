@@ -74,6 +74,14 @@ class SecurePage extends Page {
     get backToProducts () {
         return $('#back-to-products');
     }
+
+    get titleProducts () {
+        return $('#header_container > div.header_secondary_container > span');
+    }
+
+    get navBarAbout () {
+        return $('#__next > div.MuiBox-root.css-1u9jaw6 > header > div');
+    }
 }
 
 export default new SecurePage();
