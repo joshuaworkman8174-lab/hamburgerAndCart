@@ -1,4 +1,4 @@
-import { $, browser } from '@wdio/globals'
+import { $, browser, expect } from '@wdio/globals'
 import Page from './page.js';
 
 class SecurePage extends Page {
@@ -83,29 +83,39 @@ class SecurePage extends Page {
         return $('#__next > div.MuiBox-root.css-1u9jaw6 > header > div');
     }
 
-    async burgerOpenClose () {
+    async burgerOpen () {
         this.burgerButton.waitForClickable();
-        expect(this.burgerX.isDisplayed());
+        this.burgerButton.click();
+    }
+
+    async burgerClose () {
         this.burgerX.waitForClickable();
+        this.burgerX.click();
     }
 
     async burgerItemsSelect () {
-        this.burgerButton.waitForClickable();
-        expect(this.burgerX.isDisplayed());
         this.burgerItems.waitForClickable();
-        this.backpackPage.waitForClickable();
-        expect(this.backToProducts.isDisplayed());
-        this.burgerButton.waitForClickable();
-        this.burgerItems.waitForClickable();
-        expect(this.titleProducts.isDisplayed());
+        this.burgerItems.click();
     }
 
     async burgerAboutSelect () {
-        this.burgerButton.waitForClickable();
         this.burgerAbout.waitForClickable();
-        expect(this.navBarAbout.isDisplayed());
-        browser.back();
-        expect(this.titleProducts.isDisplayed());
+        this.burgerAbout.click();
+    }
+
+    async burgerResetApp () {
+        this.burgerReset.waitForClickable();
+        this.burgerReset.click(); 
+    }
+
+    async productAddOnsie () {
+        this.addCartOnsie.waitForClickable();
+        this.addCartOnsie.click();
+    }
+
+    async openBackpackPage () {
+        this.backpackPage.waitForClickable();
+        this.backpackPage.click();
     }
 
 }

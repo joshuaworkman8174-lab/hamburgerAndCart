@@ -57,10 +57,8 @@ async falseLoop() {
 }
 
 async burgerLogoutSelect () {
-        securePage.burgerButton.waitForClickable();
-        expect(securePage.burgerX.isDisplayed());
         securePage.burgerLogout.waitForClickable();
-        expect(this.mainMenuLogo.isDisplayed());
+        securePage.burgerLogout.click();
     }
 
 }
