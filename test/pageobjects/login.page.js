@@ -57,7 +57,7 @@ async falseLoop() {
 }
 
 async burgerLogoutSelect () {
-        securePage.burgerLogout.waitForClickable();
+        securePage.burgerLogout.waitForClickable({timeout: 5000});
         securePage.burgerLogout.click();
     }
 

@@ -83,38 +83,40 @@ class SecurePage extends Page {
         return $('#__next > div.MuiBox-root.css-1u9jaw6 > header > div');
     }
 
+    
+
     async burgerOpen () {
-        this.burgerButton.waitForClickable();
+        this.burgerButton.waitForClickable({timeout: 5000});
         this.burgerButton.click();
     }
 
     async burgerClose () {
-        this.burgerX.waitForClickable();
+        this.burgerX.waitForClickable({timeout: 5000});
         this.burgerX.click();
     }
 
     async burgerItemsSelect () {
-        this.burgerItems.waitForClickable();
+        this.burgerItems.waitForClickable({timeout: 5000});
         this.burgerItems.click();
     }
 
     async burgerAboutSelect () {
-        this.burgerAbout.waitForClickable();
+        this.burgerAbout.waitForClickable({timeout: 5000});
         this.burgerAbout.click();
     }
 
     async burgerResetApp () {
-        this.burgerReset.waitForClickable();
+        this.burgerReset.waitForClickable({timeout: 5000});
         this.burgerReset.click(); 
     }
 
     async productAddOnsie () {
-        this.addCartOnsie.waitForClickable();
+        this.addCartOnsie.waitForClickable({timeout: 5000});
         this.addCartOnsie.click();
     }
 
     async openBackpackPage () {
-        this.backpackPage.waitForClickable();
+        this.backpackPage.waitForClickable({timeout: 5000});
         this.backpackPage.click();
     }
 
