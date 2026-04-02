@@ -55,12 +55,20 @@ class SecurePage extends Page {
         return $('#add-to-cart-sauce-labs-bike-light');
     }
 
+    get removeCartOnsie () {
+        return $('#add-to-cart-sauce-labs-onesie')
+    }
+
     get addCartTshirt () {
         return $('#add-to-cart-sauce-labs-bolt-t-shirt');
     }
 
     get addCartJacket () {
         return $('#add-to-cart-sauce-labs-fleece-jacket');
+    }
+
+    get removeCartJacket () {
+        return $('#remove-sauce-labs-fleece-jacket')
     }
 
     get addCartOnsie () {
@@ -115,9 +123,19 @@ class SecurePage extends Page {
         this.addCartOnsie.click();
     }
 
+    async productAddJacket () {
+        this.addCartJacket.waitForClickable({timeout: 5000})
+        this.addCartJacket.click();
+    }
+
     async openBackpackPage () {
         this.backpackPage.waitForClickable({timeout: 5000});
         this.backpackPage.click();
+    }
+
+    async openCart () {
+        this.showMeSomething.waitForClickable({timeout: 5000});
+        this.showMeSomething.click();
     }
 
 }

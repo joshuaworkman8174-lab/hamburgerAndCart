@@ -3,6 +3,7 @@ import Webpage from '../pageobjects/page.js';
 import loginPage from '../pageobjects/login.page.js';
 import securePage from '../pageobjects/secure.page.js';
 import page from '../pageobjects/page.js';
+import CartPage from '../pageobjects/cart.page.js';
 
 describe('The Swag Labs website', () => {
     it('can open and close the burger menu', async () => {
@@ -43,5 +44,14 @@ describe('The Swag Labs website', () => {
         await expect(securePage.burgerX.isDisplayed());
         await securePage.burgerAboutSelect ();
         await expect(securePage.navBarAbout.waitForDisplayed());
+    })
+
+    it('add products to the cart, view them, then delete them', async () => {
+        await loginPage.open ();
+        await expect(loginPage.loginButton.isDisplayed());
+        await loginPage.login ('standard_user', 'secret_sauce');
+        await expect(securePage.burgerButton.isDisplayed());
+        await securePage.productAddJacket ();
+        await expect(securePage.removeCartJacket.isDisplayed());
     })
 });
