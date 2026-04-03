@@ -219,7 +219,7 @@ class SecurePage extends Page {
             await button.click();
         }
     }
-}
 
+}
 
 export default new SecurePage();

@@ -1,4 +1,4 @@
-import { expect } from '@wdio/globals'
+import { browser, expect } from '@wdio/globals'
 import loginPage from '../pageobjects/login.page.js';
 import securePage from '../pageobjects/secure.page.js';
 
@@ -15,7 +15,7 @@ describe('The Swag Labs website', () => {
         await securePage.burgerClose ();
     });
 
-    it('open links from the burger menu', async () => {
+    it('opens links from the burger menu', async () => {
         await securePage.burgerOpen ();
         await expect(securePage.burgerX.isDisplayed());
         await securePage.burgerItemsSelect ();
@@ -43,6 +43,9 @@ describe('The Swag Labs website', () => {
         await expect(securePage.burgerX.isDisplayed());
         await securePage.burgerAboutSelect ();
         await expect(securePage.navBarAbout.waitForDisplayed());
+        await browser.execute(() => {
+            window.stop();
+        });
     })
 
     it('adds products to the cart, views them, then deletes them', async () => {
