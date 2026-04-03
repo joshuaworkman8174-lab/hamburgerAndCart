@@ -1,9 +1,7 @@
-import { browser, expect } from '@wdio/globals'
-import Webpage from '../pageobjects/page.js';
+import { expect } from '@wdio/globals'
 import loginPage from '../pageobjects/login.page.js';
 import securePage from '../pageobjects/secure.page.js';
-import page from '../pageobjects/page.js';
-import CartPage from '../pageobjects/cart.page.js';
+
 import cartPage from '../pageobjects/cart.page.js';
 
 describe('The Swag Labs website', () => {
@@ -85,6 +83,7 @@ describe('The Swag Labs website', () => {
     })
 
     it('has functional return and checkout buttons in the cart', async () => {
-        
+        await securePage.pressBackToProducts ();
+        await expect(securePage.titleProducts.isDisplayed());
     })
 });

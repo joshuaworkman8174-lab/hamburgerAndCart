@@ -1,4 +1,4 @@
-import { $, browser, expect } from '@wdio/globals'
+import { $ } from '@wdio/globals'
 import Page from './page.js';
 
 class SecurePage extends Page {
@@ -123,7 +123,15 @@ class SecurePage extends Page {
         return $('#shopping_cart_container > a')
     }
 
-    
+    get productButtons() {
+        return [
+            this.addCartBackpack,
+            this.addCartJacket,
+            this.addCartLight,
+            this.addCartOnsie,
+            this.addCartTshirt,
+        ];
+    }
 
     async burgerOpen () {
         this.burgerButton.waitForClickable({timeout: 5000});
@@ -194,8 +202,24 @@ class SecurePage extends Page {
         this.addCartBackpack.waitForClickable({timeout: 5000});
         this.addCartBackpack.click();
     }
-    
 
+    async pressBackToProducts () {
+        this.backToProducts.waitForClickable();
+        this.backToProducts.click();
+    }
+    
+    async wildButtons () {
+        const buttons = this.productButtons;
+        const numberOfClicks = Math.floor(Math.random() * buttons.length) + 1;
+        
+        for (let i = 0; i < numberOfClicks; i++) {
+            const randomButtons = Math.floor(Math.random() * buttons.length);
+            const button = buttons[randomButtons];
+            await button.waitForClickable();
+            await button.click();
+        }
+    }
 }
+
 
 export default new SecurePage();

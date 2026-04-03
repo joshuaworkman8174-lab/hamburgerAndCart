@@ -1,4 +1,4 @@
-import { $, browser, expect } from '@wdio/globals'
+import { $ } from '@wdio/globals'
 import Page from './page.js';
 import securePage from './secure.page.js';
 
@@ -10,6 +10,10 @@ class CartPage extends Page {
 
     get continueShoppingButton () {
         return $('#continue-shopping')
+    }
+
+    get checkoutContinue () {
+        return $('#continue');
     }
 
     async deleteLight () {
