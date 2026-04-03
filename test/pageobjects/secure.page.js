@@ -67,12 +67,36 @@ class SecurePage extends Page {
         return $('#add-to-cart-sauce-labs-fleece-jacket');
     }
 
+    get addCartLongRed () {
+        return $('#add-to-cart')
+    }
+
+    get redShirtPage () {
+        return $('#item_3_title_link > div')
+    }
+
     get removeCartJacket () {
         return $('#remove-sauce-labs-fleece-jacket')
     }
 
     get addCartOnsie () {
         return $('#add-to-cart-sauce-labs-onesie');
+    }
+
+    get removeCartBackpack () {
+        return $('#remove-sauce-labs-backpack');
+    }
+
+    get removeCartLight () {
+        return $('#remove-sauce-labs-bike-light');
+    }
+
+    get removeCartTshirt () {
+        return $('#remove-sauce-labs-bolt-t-shirt');
+    }
+
+    get removeCartLongRed () {
+        return $('#remove');
     }
 
     get backpackPage () {
@@ -89,6 +113,14 @@ class SecurePage extends Page {
 
     get navBarAbout () {
         return $('#__next > div.MuiBox-root.css-1u9jaw6 > header > div');
+    }
+
+    get cartIconSix () {
+        return $('#shopping_cart_container > a > span');
+    }
+
+    get normalCartIcon () {
+        return $('#shopping_cart_container > a')
     }
 
     
@@ -137,6 +169,32 @@ class SecurePage extends Page {
         this.showMeSomething.waitForClickable({timeout: 5000});
         this.showMeSomething.click();
     }
+
+    async openRedShirt (){
+        this.redShirtPage.waitForClickable({timeout: 5000});
+        this.redShirtPage.click();
+    }
+
+    async productAddRedShirt () {
+        this.addCartLongRed.waitForClickable({timeout: 5000});
+        this.addCartLongRed.click();
+    }
+
+    async productAddTshirt () {
+        this.addCartTshirt.waitForClickable({timeout: 5000});
+        this.addCartTshirt.click();
+    }
+
+    async productAddLight () {
+        this.addCartLight.waitForClickable({timeout: 5000});
+        this.addCartLight.click();
+    }
+
+    async productAddBackpack () {
+        this.addCartBackpack.waitForClickable({timeout: 5000});
+        this.addCartBackpack.click();
+    }
+    
 
 }
 
