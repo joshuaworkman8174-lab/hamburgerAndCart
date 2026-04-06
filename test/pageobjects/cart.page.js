@@ -17,33 +17,43 @@ class CartPage extends Page {
     }
 
     async deleteLight () {
-        securePage.removeCartLight.waitForClickable({timeout: 5000});
+        securePage.removeCartLight.waitForClickable();
         securePage.removeCartLight.click();
     }
 
     async deleteBackpack () {
-        securePage.removeCartBackpack.waitForClickable({timeout: 5000});
+        securePage.removeCartBackpack.waitForClickable();
         securePage.removeCartBackpack.click();
     }
 
     async deleteTshirt () {
-        securePage.removeCartTshirt.waitForClickable({timeout: 5000});
+        securePage.removeCartTshirt.waitForClickable();
         securePage.removeCartTshirt.click();
     }
 
     async deleteOnsie () {
-        securePage.removeCartOnsie.waitForClickable({timeout: 5000});
+        securePage.removeCartOnsie.waitForClickable();
         securePage.removeCartOnsie.click();
     }
 
     async deleteJacket () {
-        securePage.removeCartJacket.waitForClickable({timeout: 5000});
+        securePage.removeCartJacket.waitForClickable();
         securePage.removeCartJacket.click();
     }
 
     async deleteLongRedSleeve () {
-        securePage.removeCartLongRed.waitForClickable({timeout: 5000});
+        securePage.removeCartLongRed.waitForClickable();
         securePage.removeCartLongRed.click();
+    }
+
+    async openCheckout () {
+        this.checkoutButton.waitForClickable();
+        this.checkoutButton.click();
+    }
+
+    async openBacktoShopping () {
+        this.continueShoppingButton.waitForClickable();
+        this.continueShoppingButton.click();
     }
 
     

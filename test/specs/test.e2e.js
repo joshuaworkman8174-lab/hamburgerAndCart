@@ -48,7 +48,7 @@ describe('The Swag Labs website', () => {
         });
     })
 
-    it('adds products to the cart, views them, then deletes them', async () => {
+    it('adds products to the cart, views them, then delete them', async () => {
         await loginPage.open ();
         await expect(loginPage.loginButton.isDisplayed());
         await loginPage.login ('standard_user', 'secret_sauce');
@@ -88,5 +88,16 @@ describe('The Swag Labs website', () => {
     it('has functional return and checkout buttons in the cart', async () => {
         await securePage.pressBackToProducts ();
         await expect(securePage.titleProducts.isDisplayed());
+        await securePage.productAddJacket ();
+        await expect(securePage.removeCartJacket.isDisplayed());
+        await securePage.productAddOnsie ();
+        await expect(securePage.removeCartOnsie.isDisplayed());
+        await securePage.openCart ();
+        await expect(cartPage.continueShoppingButton.isDisplayed());
+        await cartPage.openCheckout ();
+        await expect(cartPage.checkoutContinue.isDisplayed());
+        await browser.back ();
+        await cartPage.openBacktoShopping ();
+        await expect(securePage.showMeSomething.isDisplayed());
     })
 });
